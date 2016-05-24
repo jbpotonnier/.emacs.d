@@ -48,7 +48,7 @@
 (require 'color-theme-sanityinc-tomorrow)
 (color-theme-sanityinc-tomorrow-night)
 #+END_SRC
-* Auto sasve
+* Auto save
 #+BEGIN_SRC emacs-lisp
 (defun save-all ()
   (interactive)
