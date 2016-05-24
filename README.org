@@ -1,0 +1,3 @@
+Me emacs configuration in =org-mode= style.
+
+[[./init.el]] is just bootstraping  [[./init/init.org]].
