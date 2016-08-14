@@ -14,17 +14,20 @@
   ;; Bundles
   (el-get-bundle ananthakumaran/tide)
   (el-get-bundle ananthakumaran/typescript.el)
+  (el-get-bundle commercialhaskell/intero)
 
   (el-get 'sync
           '(
             el-get
             color-theme-sanityinc-tomorrow
-                      
+            
             flycheck
 
             web-mode
             company-mode
             haskell-mode
+            intero
+
             json-mode
             yaml-mode
             markdown-mode
@@ -175,6 +178,9 @@
 * Programming languages
 ** Haskell
 #+BEGIN_SRC emacs-lisp
+  (add-to-list 'load-path "~/.emacs.d/el-get/intero/elisp")
+  (require 'intero)
+  (add-hook 'haskell-mode-hook 'intero-mode)
   (setq haskell-font-lock-symbols t)
   (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
   (add-hook 'haskell-mode-hook 'haskell-decl-scan-mode)
