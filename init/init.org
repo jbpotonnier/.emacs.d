@@ -18,6 +18,7 @@
 
   (el-get 'sync
           '(
+            idle-highlight-mode
             el-get
             color-theme-sanityinc-tomorrow
             
@@ -45,7 +46,7 @@
             )
           )
 #+END_SRC
-  
+
 * Theme
 #+BEGIN_SRC emacs-lisp
 (require 'color-theme-sanityinc-tomorrow)
@@ -93,7 +94,7 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (global-flycheck-mode 1)
-
+(idle-highlight-mode 1)
 ;; indent
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
@@ -152,6 +153,13 @@
   (global-set-key (kbd "M-i") 'imenu)
 #+END_SRC
 * Org
+** Settings
+#+BEGIN_SRC emacs-lisp
+  (setq org-directory "~/org")
+  (setq org-mobile-inbox-for-pull "~/org/inbox.org")
+  (setq org-mobile-directory "~/Dropbox/Applications/MobileOrg")
+  (setq org-mobile-files '("~/org"))
+#+END_SRC
 ** Languages
    #+BEGIN_SRC emacs-lisp
      (setq org-confirm-babel-evaluate nil)
