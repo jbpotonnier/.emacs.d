@@ -219,3 +219,7 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 #+END_SRC
+* Emacs server
+  #+BEGIN_SRC emacs-lisp
+    (server-start)
+  #+END_SRC
