@@ -72,37 +72,37 @@
 
 * Preferences
 #+BEGIN_SRC emacs-lisp
-(set-default-font "Source Code Pro-14")
-(global-diff-hl-mode)
-(setq use-dialog-box 0)
-(tool-bar-mode 0)
-(show-paren-mode t)
-(display-time-mode 0)
-(scroll-bar-mode 0)
+  (set-default-font "Source Code Pro-14" nil t)
+  (global-diff-hl-mode)
+  (setq use-dialog-box 0)
+  (tool-bar-mode 0)
+  (show-paren-mode t)
+  (display-time-mode 0)
+  (scroll-bar-mode 0)
 
-(global-hl-line-mode t)
-(global-linum-mode 0)
-(column-number-mode 1)
-(delete-selection-mode t)
+  (global-hl-line-mode t)
+  (global-linum-mode 0)
+  (column-number-mode 1)
+  (delete-selection-mode t)
 
-(setq-default cursor-type 'bar)
-(blink-cursor-mode 0)
+  (setq-default cursor-type 'bar)
+  (blink-cursor-mode 0)
 
-(electric-pair-mode)
+  (electric-pair-mode)
 
-(setq inhibit-splash-screen t)
-(defalias 'yes-or-no-p 'y-or-n-p)
+  (setq inhibit-splash-screen t)
+  (defalias 'yes-or-no-p 'y-or-n-p)
 
-(global-flycheck-mode 1)
-(idle-highlight-mode 1)
-;; indent
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
+  (global-flycheck-mode 1)
+  (idle-highlight-mode 1)
+  ;; indent
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 4)
 
-(setq backup-directory-alist `(("." . "~/tmp/emacssaves")))
+  (setq backup-directory-alist `(("." . "~/tmp/emacssaves")))
 
-(add-hook 'after-init-hook 'global-company-mode)
-(setq neo-smart-open t)
+  (add-hook 'after-init-hook 'global-company-mode)
+  (setq neo-smart-open t)
 
 #+END_SRC
 * Scrolling
