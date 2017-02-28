@@ -2,49 +2,51 @@
 #+STARTUP: hidestars
 * Packages
 #+BEGIN_SRC emacs-lisp
-  (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+    (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
-  (unless (require 'el-get nil 'noerror)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
+    (unless (require 'el-get nil 'noerror)
+      (with-current-buffer
+          (url-retrieve-synchronously
+           "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
+        (goto-char (point-max))
+        (eval-print-last-sexp)))
 
-  ;; Bundles
-  (el-get-bundle ananthakumaran/tide)
-  (el-get-bundle ananthakumaran/typescript.el)
-  (el-get-bundle commercialhaskell/intero)
+    ;; Bundles
+    (el-get-bundle ananthakumaran/tide)
+    (el-get-bundle ananthakumaran/typescript.el)
+    (el-get-bundle commercialhaskell/intero)
 
-  (el-get 'sync
-          '(
-            idle-highlight-mode
-            el-get
-            color-theme-sanityinc-tomorrow
-            
-            flycheck
+    (el-get 'sync
+            '(
+              idle-highlight-mode
+              el-get
+              color-theme-sanityinc-tomorrow
+              
+              flycheck
 
-            web-mode
-            company-mode
-            haskell-mode
-            intero
+              web-mode
+              company-mode
+              haskell-mode
+              intero
 
-            json-mode
-            yaml-mode
-            markdown-mode
-            typescript.el
-            tide
-            tuareg-mode
-            
-            swiper
-            ace-window
-            magit
-            popup-kill-ring
-            diff-hl
-            neotree
-            multi-term
+              json-mode
+              yaml-mode
+              markdown-mode
+              typescript.el
+              tide
+              tuareg-mode
+              
+              swiper
+              ace-window
+              magit
+              popup-kill-ring
+              diff-hl
+              neotree
+              multi-term
+              multiple-cursors
+              ag
+              )
             )
-          )
 #+END_SRC
 
 * Theme
@@ -94,7 +96,7 @@
   (defalias 'yes-or-no-p 'y-or-n-p)
 
   (global-flycheck-mode 1)
-  (idle-highlight-mode 1)
+
   ;; indent
   (setq-default indent-tabs-mode nil)
   (setq-default tab-width 4)
@@ -104,7 +106,7 @@
   (add-hook 'after-init-hook 'global-company-mode)
   (setq neo-smart-open t)
 
-#+END_SRC
+  #+END_SRC
 * Scrolling
 #+BEGIN_SRC emacs-lisp
 
@@ -151,6 +153,10 @@
 
   ;; imenu
   (global-set-key (kbd "M-i") 'imenu)
+
+  ;; multiple-cursors
+  (global-set-key (kbd "C-.") 'mc/mark-next-like-this-word)
+  (global-set-key (kbd "C-,") 'mc/mark-previous-like-this-word)
 #+END_SRC
 * Org
 ** Settings
@@ -219,6 +225,16 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 #+END_SRC
+** Hooks
+ #+BEGIN_SRC emacs-lisp
+   (defun idle-highlight-hook ()
+     (make-local-variable 'column-number-mode)
+     (column-number-mode t)
+     (if window-system (hl-line-mode t))
+     (idle-highlight-mode t))
+
+   (add-hook 'haskell-mode-hook 'idle-highlight-hook)
+ #+END_SRC
 * Emacs server
   #+BEGIN_SRC emacs-lisp
     (server-start)
