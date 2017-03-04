@@ -2,51 +2,52 @@
 #+STARTUP: hidestars
 * Packages
 #+BEGIN_SRC emacs-lisp
-    (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+  (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
-    (unless (require 'el-get nil 'noerror)
-      (with-current-buffer
-          (url-retrieve-synchronously
-           "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
-        (goto-char (point-max))
-        (eval-print-last-sexp)))
+  (unless (require 'el-get nil 'noerror)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
 
-    ;; Bundles
-    (el-get-bundle ananthakumaran/tide)
-    (el-get-bundle ananthakumaran/typescript.el)
-    (el-get-bundle commercialhaskell/intero)
+  ;; Bundles
+  (el-get-bundle ananthakumaran/tide)
+  (el-get-bundle ananthakumaran/typescript.el)
+  (el-get-bundle commercialhaskell/intero)
 
-    (el-get 'sync
-            '(
-              idle-highlight-mode
-              el-get
-              color-theme-sanityinc-tomorrow
-              
-              flycheck
+  (el-get 'sync
+          '(
+            idle-highlight-mode
+            el-get
+            color-theme-sanityinc-tomorrow
+            
+            flycheck
 
-              web-mode
-              company-mode
-              haskell-mode
-              intero
+            web-mode
+            company-mode
+            haskell-mode
+            intero
 
-              json-mode
-              yaml-mode
-              markdown-mode
-              typescript.el
-              tide
-              tuareg-mode
-              
-              swiper
-              ace-window
-              magit
-              popup-kill-ring
-              diff-hl
-              neotree
-              multi-term
-              multiple-cursors
-              ag
-              )
+            json-mode
+            yaml-mode
+            markdown-mode
+            typescript.el
+            tide
+            tuareg-mode
+            
+            swiper
+            ace-window
+            magit
+            popup-kill-ring
+            diff-hl
+            neotree
+            multi-term
+            multiple-cursors
+            ag
+            beacon
             )
+          )
 #+END_SRC
 
 * Theme
@@ -74,7 +75,7 @@
 
 * Preferences
 #+BEGIN_SRC emacs-lisp
-  (set-default-font "Source Code Pro-14" nil t)
+  (set-default-font "Source Code Pro-13" nil t)
   (global-diff-hl-mode)
   (setq use-dialog-box 0)
   (tool-bar-mode 0)
@@ -105,6 +106,7 @@
 
   (add-hook 'after-init-hook 'global-company-mode)
   (setq neo-smart-open t)
+  (setq ag-highlight-search t)
 
   #+END_SRC
 * Scrolling
