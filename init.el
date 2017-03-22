@@ -16,7 +16,7 @@
  '(erc-modules
    (quote
     (autojoin button completion fill irccontrols list match menu move-to-prompt netsplit networks noncommands readonly ring smiley stamp track)))
- )
+ '(package-selected-packages (quote (let-alist))))
 
 (require 'org)
 (org-babel-load-file
