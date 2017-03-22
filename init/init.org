@@ -1,4 +1,3 @@
-
 #+Title: Emacs configuration
 #+STARTUP: hidestars
 * Packages
