@@ -1,5 +1,4 @@
 #+Title: Emacs configuration
-#+STARTUP: hidestars
 * Packages
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
@@ -35,6 +34,7 @@
             typescript.el
             tide
             tuareg-mode
+            mediawiki
             
             swiper
             ace-window
@@ -150,7 +150,12 @@
   ;; multiple-cursors
   (global-set-key (kbd "C-.") 'mc/mark-next-like-this-word)
   (global-set-key (kbd "C-,") 'mc/mark-previous-like-this-word)
+
+;; multi-term
+  (global-set-key (kbd "C-`") 'multi-term-dedicated-toggle)
 #+END_SRC
+
+* 
 * Org
 ** Settings
 #+BEGIN_SRC emacs-lisp
@@ -218,14 +223,15 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 #+END_SRC
-** Hooks
+* idle-highlight-mode 
  #+BEGIN_SRC emacs-lisp
-   (defun idle-highlight-hook ()
-     (make-local-variable 'column-number-mode)
-     (column-number-mode t)
-     (if window-system (hl-line-mode t))
-     (idle-highlight-mode t))
+  (defun idle-highlight-hook ()
+    (make-local-variable 'column-number-mode)
+    (column-number-mode t)
+    (if window-system (hl-line-mode t))
+    (idle-highlight-mode t))
 
-   (add-hook 'haskell-mode-hook 'idle-highlight-hook)
+  (add-hook 'haskell-mode-hook 'idle-highlight-hook)
+  (add-hook 'org-mode-hook 'idle-highlight-hook)
  #+END_SRC
 
