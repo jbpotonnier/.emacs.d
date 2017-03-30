@@ -75,7 +75,7 @@
 
 * Preferences
 #+BEGIN_SRC emacs-lisp
-  (set-default-font "Source Code Pro-13" nil t)
+  (set-default-font "Source Code Pro-10" nil t)
   (global-diff-hl-mode)
   (setq use-dialog-box 0)
   (tool-bar-mode 0)
@@ -155,7 +155,6 @@
   (global-set-key (kbd "C-`") 'multi-term-dedicated-toggle)
 #+END_SRC
 
-* 
 * Org
 ** Settings
 #+BEGIN_SRC emacs-lisp
@@ -197,17 +196,6 @@
   (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
   (add-hook 'haskell-mode-hook 'haskell-decl-scan-mode)
 #+END_SRC
-** OCaml
-#+BEGIN_SRC emacs-lisp
-(setq opam-share (substring (shell-command-to-string "opam config var share 2> /dev/null") 0 -1))
-(add-to-list 'load-path (concat opam-share "/emacs/site-lisp"))
-(require 'merlin)
-
-(add-hook 'tuareg-mode-hook 'merlin-mode)
-(with-eval-after-load 'company
-  (add-to-list 'company-backends 'merlin-company-backend))
-#+END_SRC
-
 ** Typescript
 #+BEGIN_SRC emacs-lisp
 (add-hook 'typescript-mode-hook
